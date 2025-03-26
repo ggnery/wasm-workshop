@@ -1,0 +1,7 @@
+package component:crypto;
+
+world cryptography {
+    export encrypt: func(message: string, public-key: string) -> list<u8>;
+    export decrypt: func(encrypted-message: list<u8>) -> string;
+    export get-public-key: func() -> string;
+}
