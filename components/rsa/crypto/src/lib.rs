@@ -2,7 +2,7 @@
 mod bindings;
 
 use bindings::Guest;
-use rsa::{ pkcs1::EncodeRsaPublicKey, pkcs8::{DecodePublicKey, LineEnding}, rand_core::OsRng, Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
+use rsa::{ pkcs1::{DecodeRsaPublicKey, EncodeRsaPublicKey}, pkcs8::{DecodePublicKey, LineEnding}, rand_core::OsRng, Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
 use std::{str::from_utf8, sync::LazyLock};
 
 struct Component;
@@ -22,7 +22,7 @@ static PUBLIC_KEY: LazyLock<RsaPublicKey> = LazyLock::new(|| {
 impl Guest for Component {
     fn encrypt(message: String, public_key: String) -> Vec<u8> {
         let data = message.as_bytes();
-        let public_key = RsaPublicKey::from_public_key_pem(public_key.as_str()).expect("Couldn't get public key");
+        let public_key =RsaPublicKey::from_pkcs1_pem(&public_key).expect("Couldn't get public key");
         
         let mut rng = OsRng;
         public_key.encrypt(&mut rng, Pkcs1v15Encrypt, data).expect("Couldn't encrypt messsage")
