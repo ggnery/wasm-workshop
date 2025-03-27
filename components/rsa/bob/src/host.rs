@@ -50,7 +50,7 @@ impl Host {
     }
 
     pub fn encrypt(&mut self, message: String, public_key: String) -> Result<Vec<u8>, Box<dyn Error>> {
-       let f = self.instance.get_typed_func::<(String, String), (Vec<u8>,)>(&mut self.store, "encrypt")?;
+        let f = self.instance.get_typed_func::<(String, String), (Vec<u8>,)>(&mut self.store, "encrypt")?;
     
         let result = f.call(&mut self.store, (message, public_key))?;
         f.post_return(&mut self.store)?;

@@ -6,9 +6,3 @@ edition = "2021"
 [dependencies]
 wasmtime = "31.0.0"
 wasmtime-wasi = "31.0.0"
-wit-bindgen-rt = { version = "0.41.0", features = ["bitflags"] }
-
-[package.metadata.component]
-package = "component:crypto"
-
-[package.metadata.component.dependencies]
