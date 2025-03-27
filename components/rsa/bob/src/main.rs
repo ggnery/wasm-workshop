@@ -8,7 +8,7 @@ mod network;
 fn main() -> Result<(), Box<dyn Error>> {
     let mut host = Host::build("/home/gnery/Desktop/ericsson/wasm-workshop/components/rsa/crypto/target/wasm32-wasip1/release/crypto.wasm")?;
     let public_key = host.get_public_key()?; 
-    
+    println!("{}", public_key);
     let listener = TcpListener::bind("127.0.0.1:8080")?;
     println!("Bob listening on 127.0.0.1:8080");
 
