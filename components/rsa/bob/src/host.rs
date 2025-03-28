@@ -49,6 +49,7 @@ impl Host {
         Ok(result.0)
     }
 
+    #[allow(dead_code)]
     pub fn encrypt(&mut self, message: String, public_key: String) -> Result<Vec<u8>, Box<dyn Error>> {
         let f = self.instance.get_typed_func::<(String, String), (Vec<u8>,)>(&mut self.store, "encrypt")?;
     
