@@ -1,0 +1,11 @@
+[package]
+name = "example2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasmtime = "31.0.0"
+
+[[bin]]
+name = "main"
+path = "main.rs"
