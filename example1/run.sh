@@ -1,0 +1,1 @@
+wasmtime --invoke sum sum.wat
