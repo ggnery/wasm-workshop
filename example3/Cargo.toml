@@ -1,0 +1,14 @@
+[package]
+name = "main"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasmtime = "31.0.0"
+wasm-lib  =  {path =  "./wasm-lib/" }
+wasmtime-wasi = "31.0.0"
+
+[workspace]
+members = [
+    "wasm-lib"
+]
